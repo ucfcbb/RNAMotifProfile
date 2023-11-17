@@ -1,0 +1,11 @@
+>7KGB_A:644-647_634-636
+GAGG...UUC
+#info=basepair
+0-1,S/H,cis
+0-2,W/H,cis
+#info=stacking
+1-2,upward
+2-3,upward
+4-5,inward
+5-6,outward
+3-5,downward

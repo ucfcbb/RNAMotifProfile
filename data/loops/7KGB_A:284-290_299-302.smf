@@ -1,0 +1,15 @@
+>7KGB_A:284-290_299-302
+GGGUAAC...GGUU
+#info=basepair
+0-9,S/W,trans
+3-5,W/H,cis
+3-9,S/W,trans
+4-7,W/W,cis
+6-8,W/H,cis
+#info=stacking
+0-10,outward
+2-9,downward
+4-6,upward
+4-7,inward
+4-9,outward
+7-8,inward
