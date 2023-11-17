@@ -2,7 +2,6 @@
 *.pyc
 *.txt
 !requirements.txt
-*.in
 *.bck
 
 !data/
