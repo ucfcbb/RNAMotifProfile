@@ -140,6 +140,7 @@ def all_mapping_file_exists_for_single_pdb(pdb_id, chains, directories):
     valid_chains = []
     
     for chain_id in chains:
+        chain_id = get_modified_chain_id_if_any_lowercase_letter(chain_id)
         mapping_fname = os.path.join(directories.pdb_fasta_mapping_dir, pdb_id + '_' + chain_id + '_invalid.rmsx.nch')
         if not os.path.isfile(mapping_fname):
             valid_chains.append(chain_id)
@@ -152,6 +153,7 @@ def all_mapping_file_exists_for_single_pdb(pdb_id, chains, directories):
     return True
 
 def write_invalid_mapping_file(pdb_id, chain_id, directories):
+    chain_id = get_modified_chain_id_if_any_lowercase_letter(chain_id)
     mapping_fname = os.path.join(directories.pdb_fasta_mapping_dir, pdb_id + '_' + chain_id + '_invalid.rmsx.nch')
     if not os.path.isfile(mapping_fname):
         fp = open(mapping_fname, 'w')
@@ -278,7 +280,7 @@ def get_residue_reference_both_way_mapping_data_for_single_chain(residue_list, r
 
     return residue_list, ref_seq_replaced, residue_to_ref_mapping, ref_to_residue_mapping
 
-def get_pdbx_and_mapping_data(pdb_id, chains, directories):
+def get_pdbx_and_fasta_mapping_data(pdb_id, chains, directories):
     pdb_fn = os.path.join(directories.pdbx_dir, pdb_id + '.cif')
     fasta_fn = os.path.join(directories.fasta_dir, pdb_id + '.fasta')
 
@@ -355,6 +357,7 @@ def generate_pdbx_fasta_mapping_files_for_single_pdb(pdb_id, chains, directories
     chains = get_valid_chain_list(pdb_id, chains, residue_dict, modified_residue_dict, ref_seq_dict, directories)
     all_mapping_file_exists = True
     for chain_id in chains:
+        chain_id = get_modified_chain_id_if_any_lowercase_letter(chain_id)
         mapping_fname = os.path.join(directories.pdb_fasta_mapping_dir, pdb_id + '_' + chain_id + '.rmsx.nch')
         if not os.path.isfile(mapping_fname):
             all_mapping_file_exists = False
@@ -375,7 +378,7 @@ def generate_pdbx_fasta_mapping_files_for_single_pdb(pdb_id, chains, directories
         # multi_seq_dict[chain_id] = ref_seq_replaced
         multi_seq_dict[chain_id] = ref_seq_dict[chain_id]
 
-        mapping_fname = os.path.join(directories.pdb_fasta_mapping_dir, pdb_id + '_' + chain_id + '.rmsx.nch')
+        mapping_fname = os.path.join(directories.pdb_fasta_mapping_dir, pdb_id + '_' + get_modified_chain_id_if_any_lowercase_letter(chain_id) + '.rmsx.nch')
         fp = open(mapping_fname, 'w')
         
         for m in residue_to_ref_mapping:
@@ -579,7 +582,7 @@ def get_loop_type(loop):
     return ''
 
 def generate_loop_files_for_single_pdb(pdb_id, chains, loops, directories, annotation_source, env):
-    chains, residue_dict, ref_seq_dict, res_to_ref, ref_to_res, missing_residue_dict = get_pdbx_and_mapping_data(pdb_id, chains, directories)
+    chains, residue_dict, ref_seq_dict, res_to_ref, ref_to_res, missing_residue_dict = get_pdbx_and_fasta_mapping_data(pdb_id, chains, directories)
 
     is_detailed_ann = True
     bp_item_len = 5
@@ -624,7 +627,8 @@ def generate_loop_files_for_single_pdb(pdb_id, chains, loops, directories, annot
             loop_bp_intera = sorted(loop_bp_intera, key=lambda x: x[0])
             loop_stack_intera = sorted(loop_stack_intera, key=lambda x: x[0])
 
-            loop_fn_smf = os.path.join(directories.loop_dir, pdb_id+'_%s:%s.smf' % (chain_id, '_'.join(map(lambda x: str(x[0])+'-'+str(x[1]), loop_i))))  #for scanx with stacking
+            # loop_fn_smf = os.path.join(directories.loop_dir, pdb_id+'_%s:%s.smf' % (chain_id, '_'.join(map(lambda x: str(x[0])+'-'+str(x[1]), loop_i))))  #for scanx with stacking
+            loop_fn_smf = os.path.join(directories.loop_dir, pdb_id+'_%s_%s.smf' % (chain_id, '_'.join(map(lambda x: str(x[0])+'-'+str(x[1]), loop_i))))  #for scanx with stacking
 
             if env == 'local':
                 fms = open('missing_residue_stat.txt', 'a')
@@ -650,7 +654,8 @@ def generate_loop_files_for_single_pdb(pdb_id, chains, loops, directories, annot
                         fms.write('\n')
 
                     if missing_res_length > 5 or 2 * missing_res_length > len(loop_i_index):
-                        loop_fn_smf = os.path.join(directories.loop_dir, 'missing_res/' + type, pdb_id+'_%s:%s.smf' % (chain_id, '_'.join(map(lambda x: str(x[0])+'-'+str(x[1]), loop_i))))  #for scanx with stacking
+                        # loop_fn_smf = os.path.join(directories.loop_dir, 'missing_res/' + type, pdb_id+'_%s:%s.smf' % (chain_id, '_'.join(map(lambda x: str(x[0])+'-'+str(x[1]), loop_i))))  #for scanx with stacking
+                        loop_fn_smf = os.path.join(directories.loop_dir, 'missing_res/' + type, pdb_id+'_%s_%s.smf' % (chain_id, '_'.join(map(lambda x: str(x[0])+'-'+str(x[1]), loop_i))))  #for scanx with stacking
             if env == 'local':
                 fms.close()
 
@@ -719,6 +724,7 @@ def is_all_data_available(pdb, chain, directories, annotation_source):
         return False
     if not os.path.isfile(os.path.join(directories.fasta_dir, pdb + '.fasta')):
         return False
+    chain = get_modified_chain_id_if_any_lowercase_letter(chain)
     if not os.path.isfile(os.path.join(directories.pdb_fasta_mapping_dir, pdb + '_' + chain + '.rmsx.nch')):
         if not os.path.isfile(os.path.join(directories.pdb_fasta_mapping_dir, pdb + '_' + chain + '_invalid.rmsx.nch')):
             return False
@@ -750,7 +756,7 @@ def prepare_loop_files(loop_node_list_str, directories, annotation_source, mp_nu
         loop_rotations = get_all_loop_combination(str(node))
         has_all_rotations = True
         for loop in loop_rotations:
-            loop_fn_smf = os.path.join(directories.loop_dir, loop + '.smf')
+            loop_fn_smf = os.path.join(directories.loop_dir, loop.replace(':', '_') + '.smf')
             if not os.path.isfile(loop_fn_smf):
                 has_all_rotations = False
                 break

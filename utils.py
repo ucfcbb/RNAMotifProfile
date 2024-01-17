@@ -2981,3 +2981,9 @@ def wait_for_certain_time_according_to_wait_factor(n, wait_factor=0.1, max_wait_
     wait_time = n * wait_factor
     wait_time = min(wait_time, max_wait_time)
     time.sleep(wait_time)
+
+# This was done to make the code compatible with any case-insensitive OS
+def get_modified_chain_id_if_any_lowercase_letter(chain_id):
+    if chain_id != chain_id.upper():
+        chain_id = chain_id + '_'
+    return chain_id

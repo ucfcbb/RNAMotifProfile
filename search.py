@@ -3,6 +3,7 @@ import sys
 import time
 import collections
 import copy
+import platform
 
 from classes import *
 from config import *
@@ -78,6 +79,8 @@ def get_all_loop_combination(loop):
 def generate_scanx_data(directories, loopName, scanx_structure_file):
 	ScanX_dir = get_scanx_dir()
 	scanx_aln_executable = os.path.join(ScanX_dir, 'bin/align')
+	if platform.system() == 'Darwin':
+		scanx_aln_executable = os.path.join(ScanX_dir, 'bin/align.mac')
 	alignment_dir = directories.temp_dir
 	output_fn = os.path.join(alignment_dir, 'alignment_result.aln')
 	os.environ['RNAMOTIFSCANX_PATH'] = ScanX_dir
@@ -94,7 +97,7 @@ def generate_scanx_data(directories, loopName, scanx_structure_file):
 	for loop in get_all_loop_combination(loopName):
 		# print('generating alignment with ' + loop)
 		logger.info('Generating alignment with ' + loop)
-		file2 = os.path.join(directories.loop_dir, loop + '.smf')
+		file2 = os.path.join(directories.loop_dir, loop.replace(':', '_') + '.smf')
 		os.system('%s %s %s >> %s' % (scanx_aln_executable, file1, file2, output_fn))
 		time.sleep(3)
 		# print('parsing')
@@ -124,7 +127,7 @@ def search_for_motifs_using_a_profile(target_profile, loop_list, directories, sc
 	
 	motifs = []
 	for loop in loop_list:
-		loop_data = load_loop_data(os.path.join(directories.loop_dir, loop + '.smf'), False)
+		loop_data = load_loop_data(os.path.join(directories.loop_dir, loop.replace(':', '_') + '.smf'), False)
 		# print(loop_data[1])
 		# sys.exit()
 		motif = Motif(loop_data[0], loop_data[1], loop_data[3], loop_data[5], loop)

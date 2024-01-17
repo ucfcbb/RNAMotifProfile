@@ -28,6 +28,11 @@ def convert_a_loop_from_PDB_to_FASTA(loop, directories):
     pdb_id, chain_id = pdb_chain.strip().split('_')
 
     mapping_file_name = pdb_chain + '.rmsx.nch'
+
+    # This was done to make the code compatible with any case-insensitive OS
+    if chain_id != chain_id.upper():
+        mapping_file_name = pdb_chain + '_.rmsx.nch'
+
     converter = PDB_FASTA_Index_Converter(directories.pdb_fasta_mapping_dir, mapping_file_name)
 
     segments = segments.strip().split('_')
@@ -59,6 +64,11 @@ def convert_a_loop_from_FASTA_to_PDB(loop, directories):
     pdb_id, chain_id = pdb_chain.strip().split('_')
 
     mapping_file_name = pdb_chain + '.rmsx.nch'
+
+    # This was done to make the code compatible with any case-insensitive OS
+    if chain_id != chain_id.upper():
+        mapping_file_name = pdb_chain + '_.rmsx.nch'
+
     converter = PDB_FASTA_Index_Converter(directories.pdb_fasta_mapping_dir, mapping_file_name)
 
     segments = segments.strip().split('_')

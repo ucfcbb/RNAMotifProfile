@@ -204,11 +204,11 @@ def main():
 			motifs = []
 			not_found_list = []
 			for loop in loops:
-				file_name = os.path.join(directories.loop_dir, loop + '.smf')
+				file_name = os.path.join(directories.loop_dir, loop.replace(':', '_') + '.smf')
 				if not os.path.exists(file_name):
 					not_found_list.append(loop)
 					continue
-				loop_data = load_loop_data(os.path.join(directories.loop_dir, loop + '.smf'), False)
+				loop_data = load_loop_data(os.path.join(directories.loop_dir, loop.replace(':', '_') + '.smf'), False)
 				# print(loop_data[1])
 				# sys.exit()
 				motif = Motif(loop_data[0], loop_data[1], loop_data[3], loop_data[5], loop)
@@ -246,7 +246,7 @@ def main():
 		process_end_time = time.time()
 		print('Total time taken: ' + str(round((process_end_time - process_start_time), 3)) + ' seconds.\n')
 
-		logger.info('Please check the ' + os.path.basename(output_dir) + ' directory for generated profiles.\n')
+		logger.info('Please check the \'' + output_dir[len(os.path.dirname(directories.base_dir))+1:] + '\' directory for generated profiles.\n')
 
 	else:
 		#profile based search
@@ -324,7 +324,7 @@ def main():
 		search_for_motifs_using_a_profile(target_profile, query_loop_list, directories, scores, bp_scoring_data, stk_scoring_data, nucl_scoring_data, initialized_basepair_index, include_stackings, use_branch_and_bound, dBG, output_fname, include_scanx_score, scanx_structure_file)
 		logger.info('\nSearch complete.\nA profile-to-profile alignment score is generated for each input motif.\nMotifs with higher score are more likely to be of the same family of the provided profile.\n')
 
-		logger.info('Please check the ' + os.path.basename(output_dir) + ' directory for the search results.\n')
+		logger.info('Please check the \'' + output_dir[len(os.path.dirname(directories.base_dir))+1:] + '\' directory for the search results.\n')
 
 if __name__ == "__main__":
 	main()
