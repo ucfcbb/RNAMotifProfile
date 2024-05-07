@@ -1,0 +1,29 @@
+#info=sequence
+U: 3
+C: 3
+G: 3
+U: 3
+A: 3
+U: 3
+C: 3
+A: 3
+C: 3
+G: 3
+G: 3
+A: 3
+A: 3
+#info=basepair
+4-11	tHH - AA: 3
+7-10	tHS - AG: 3
+#info=stacking
+0-1	upward: 3
+2-12	upward: 3
+3-4	downward: 3
+4-10	downward: 3
+7-8	upward: 3
+7-11	outward: 3
+9-10	upward: 3
+#info=break_points
+2, 9, 13
+#info=total_loops
+3

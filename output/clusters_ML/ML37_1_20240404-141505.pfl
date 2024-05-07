@@ -1,0 +1,53 @@
+#info=sequence
+G: 2, A: 1
+A: 3
+C: 3
+U: 3
+G: 3
+C: 3
+A: 3
+U: 2, C: 1
+A: 2, C: 1
+G: 3
+U: 3
+G: 3
+A: 3
+A: 2, U: 1
+-: 2, U: 1
+U: 2, A: 1
+-: 2, U: 1
+U: 2, -: 1
+A: 3
+A: 3
+C: 2, U: 1
+#info=basepair
+1-18	tSW - AA: 3
+2-7	tHW - CU: 2, tHW - CC: 1
+3-6	tHS - UA: 3
+8-11	tHS - AG: 2, tHS - CG: 1
+12-17	tHW - AU: 2
+13-16	cWW - UU: 1
+#info=stacking
+1-2	upward: 3
+1-12	outward: 3
+3-4	upward: 3
+4-6	outward: 3
+5-6	upward: 3
+6-7	upward: 3
+7-8	upward: 3
+7-11	inward: 1
+8-9	upward: 3
+10-11	upward: 3
+12-13	upward: 3
+12-18	outward: 3
+18-19	upward: 3
+19-20	upward: 3
+2-3	upward: 2
+13-14	upward: 1
+15-16	upward: 1
+16-17	upward: 1
+15-17	upward: 1
+#info=break_points
+5, 10, 15, 21
+#info=total_loops
+3

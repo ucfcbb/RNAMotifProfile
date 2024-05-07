@@ -1,0 +1,26 @@
+#info=sequence
+G: 2
+U: 2
+A: 2
+U: 2
+C: 2
+G: 2
+A: 2
+A: 2
+G: 2
+C: 2
+A: 2
+A: 2
+U: 2
+#info=basepair
+#info=stacking
+0-1	upward: 2
+2-3	upward: 2
+5-6	upward: 2
+7-11	outward: 2
+8-10	outward: 2
+9-10	upward: 2
+#info=break_points
+5, 9, 13
+#info=total_loops
+2

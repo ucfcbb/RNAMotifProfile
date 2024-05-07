@@ -1,0 +1,47 @@
+#info=sequence
+G: 92, C: 12, U: 7, A: 6
+U: 112, -: 2, G: 1, A: 1, C: 1
+U: 72, G: 43, -: 2
+C: 70, A: 21, -: 18, G: 8
+-: 44, G: 42, A: 30, C: 1
+-: 85, G: 15, A: 14, U: 2, C: 1
+A: 114, U: 3
+A: 40, G: 29, U: 28, C: 17, -: 3
+-: 79, U: 28, G: 4, C: 3, A: 3
+U: 58, -: 47, C: 7, G: 4, A: 1
+C: 82, -: 23, G: 5, U: 4, A: 3
+#info=basepair
+1-6	tWH - UA: 112, tWH - GU: 1, tWH - AA: 1, tWH - CA: 1
+5-8	tWW - UA: 2, cWH - GU: 1
+2-4	tSH - UA: 1
+#info=stacking
+0-1	upward: 106
+1-2	upward: 110, inward: 5
+1-7	outward: 1
+3-5	upward: 20
+5-6	upward: 4
+2-6	outward: 31
+6-10	upward: 81
+7-8	upward: 24, outward: 1
+6-8	upward: 3
+2-5	inward: 4
+2-3	inward: 1, upward: 1
+7-10	upward: 4
+1-8	outward: 1
+4-5	upward: 2
+6-9	upward: 8, inward: 1
+3-4	upward: 58, outward: 2
+0-5	upward: 2
+8-10	outward: 2
+1-10	outward: 5
+8-9	upward: 1
+1-9	outward: 2, downward: 1
+9-10	outward: 1, inward: 1
+7-9	upward: 44, outward: 2
+0-7	inward: 2, upward: 1
+2-4	inward: 3
+4-6	upward: 1
+#info=break_points
+11
+#info=total_loops
+117

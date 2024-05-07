@@ -1,0 +1,99 @@
+#info=sequence
+U: 26, C: 18, G: 17, -: 4, A: 2
+-: 30, G: 21, U: 7, C: 6, A: 3
+-: 52, G: 9, A: 3, U: 2, C: 1
+-: 26, G: 25, U: 8, A: 6, C: 2
+-: 38, G: 15, A: 9, C: 3, U: 2
+-: 54, G: 6, U: 6, C: 1
+A: 60, -: 4, G: 2, U: 1
+G: 32, A: 13, -: 10, U: 8, C: 4
+C: 37, U: 21, G: 7, -: 1, A: 1
+G: 34, -: 12, U: 9, A: 8, C: 4
+-: 37, A: 14, U: 8, G: 6, C: 2
+-: 35, U: 13, A: 11, C: 5, G: 3
+G: 51, -: 6, C: 6, A: 2, U: 2
+A: 48, -: 14, G: 5
+A: 37, C: 11, U: 10, G: 7, -: 2
+G: 23, A: 14, C: 13, -: 11, U: 6
+#info=basepair
+1-4	cSW - UC: 3, cSW - GA: 2
+1-14	tSH - GA: 10, tWH - UA: 3, tSS - CA: 2, tSW - GA: 2, tWH - CC: 2, tWW - GG: 2, tSH - GU: 2, tSS - AA: 1, tSS - GA: 1, tSH - GG: 1, tWW - AA: 1, tSH - CA: 1
+6-12	tHS - AG: 47, tHH - AC: 4, tHS - AA: 2
+6-14	tWW - AA: 3, tSS - AG: 1
+4-14	tSH - GA: 3, tWH - GA: 1
+7-9	tHS - AG: 4, tWW - AG: 1, tHS - UG: 1, tHW - AG: 1
+5-14	tSH - GA: 5, tHH - GA: 1
+2-13	tSH - GA: 4, tWH - AA: 2, tWH - GA: 1, tWW - UA: 1, tWH - UA: 1, tWH - CA: 1
+7-13	tSS - GA: 13, tSS - GG: 1, tSS - CA: 1
+6-9	tWS - AG: 8, tSS - AG: 6, tSS - AA: 5, tSS - AU: 3, tSS - GG: 2, tSS - AC: 2
+3-12	tHS - AG: 1, tHS - AA: 1
+8-13	cSS - CA: 6, cSS - GA: 2, cSS - UA: 2, cSS - UG: 1
+3-13	tSH - GA: 14, tWW - UA: 2, tWH - AA: 2, tWH - UA: 2, tSH - AA: 1, tWH - CA: 1
+6-8	tHW - AA: 1, tHW - AU: 1, tSS - AG: 1
+3-14	tSH - GA: 9, tSH - GU: 2, tSH - UA: 1, tSH - GG: 1
+9-10	cSW - GA: 3
+6-13	tWW - AA: 2
+5-9	tSS - UG: 2, tSW - UG: 2, cWW - CC: 1
+4-13	tSH - GA: 8, tHH - AA: 4, tHH - UA: 1, tHH - AG: 1, tWH - GA: 1
+4-12	tHW - AC: 1
+#info=stacking
+0-1	upward: 29, inward: 3
+1-2	upward: 9, outward: 1
+2-14	inward: 2, outward: 1, downward: 1
+3-12	inward: 15, downward: 1
+4-6	upward: 6
+6-7	upward: 12
+7-12	outward: 4
+8-12	upward: 11, downward: 1
+0-4	upward: 2, inward: 1
+6-9	upward: 8, inward: 1
+6-14	outward: 9
+14-15	upward: 40, outward: 1
+4-12	inward: 11
+2-4	upward: 2
+8-9	upward: 30, inward: 1
+9-12	upward: 5, outward: 3, downward: 3
+2-15	outward: 1
+1-15	outward: 8
+4-5	upward: 4, inward: 1, downward: 1
+4-14	inward: 5
+5-13	downward: 1, inward: 1
+12-13	outward: 6, upward: 2
+2-12	inward: 8
+13-14	upward: 39, outward: 4
+6-13	outward: 33, downward: 4, upward: 1
+2-6	upward: 4
+5-9	inward: 2
+7-14	outward: 2, downward: 1
+5-12	inward: 2, downward: 2, outward: 1
+12-14	upward: 1
+7-8	downward: 1
+7-9	outward: 23, upward: 1
+1-12	inward: 4
+6-10	inward: 17, upward: 7
+10-12	upward: 13, outward: 8
+13-15	upward: 2
+3-10	upward: 1
+3-13	inward: 3, outward: 1
+1-13	outward: 2
+1-3	upward: 9, outward: 2
+0-14	upward: 1
+0-3	upward: 17
+3-6	upward: 3
+8-13	upward: 1
+3-8	inward: 1
+1-14	outward: 1
+0-5	upward: 1
+6-8	downward: 6
+3-4	upward: 7, inward: 5
+3-15	outward: 5
+4-9	inward: 1
+9-10	upward: 1
+6-11	upward: 1
+11-12	outward: 1
+7-10	outward: 1
+8-10	upward: 1
+#info=break_points
+8, 16
+#info=total_loops
+67

@@ -1,0 +1,79 @@
+#info=sequence
+G: 3, U: 1
+C: 3, G: 1
+G: 3, C: 1
+U: 3, C: 1
+G: 4
+A: 3, C: 1
+A: 4
+A: 4
+A: 4
+G: 4
+A: 3, U: 1
+A: 4
+C: 4
+G: 3, A: 1
+A: 3, G: 1
+G: 4
+U: 3, C: 1
+G: 4
+A: 4
+A: 4
+A: 4
+U: 2, A: 1, G: 1
+A: 4
+G: 4
+A: 4
+G: 2, A: 2
+C: 4
+C: 3, A: 1
+#info=basepair
+3-7	tWH - UA: 3, tWH - CA: 1
+3-22	cSS - UA: 1, cSS - CA: 1, cSW - UA: 1
+4-8	tSH - GA: 4
+5-18	tHH - AA: 3, tHH - CA: 1
+7-20	tWW - AA: 4
+8-16	cSS - AC: 1, cSS - AU: 1
+8-22	tWW - AA: 4
+9-23	tSS - GG: 4
+9-26	cWW - GC: 4
+10-14	cSW - AA: 3, cWW - UG: 1
+11-14	tHS - AA: 3, tHS - AG: 1
+15-23	tWH - GG: 4
+16-20	tWH - UA: 3, tWH - CA: 1
+17-22	tSH - GA: 4
+10-24	tHH - AA: 3
+6-19	tHH - AA: 1
+#info=stacking
+0-1	upward: 4
+1-27	outward: 1
+2-27	upward: 4
+3-4	upward: 4
+3-9	outward: 3
+3-26	downward: 2
+4-6	inward: 2
+4-7	outward: 4
+5-6	upward: 4
+6-8	upward: 4
+7-8	downward: 4
+7-9	upward: 4
+7-23	upward: 2
+9-24	upward: 4
+10-15	outward: 1
+10-23	downward: 4
+11-12	upward: 4
+13-14	upward: 4
+14-15	upward: 4
+15-16	upward: 4
+16-17	upward: 4
+17-20	outward: 2
+18-19	upward: 4
+19-22	upward: 4
+20-22	downward: 4
+20-23	upward: 4
+12-14	outward: 1
+17-19	inward: 1
+#info=break_points
+2, 13, 28
+#info=total_loops
+4

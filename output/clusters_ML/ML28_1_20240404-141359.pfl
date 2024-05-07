@@ -1,0 +1,38 @@
+#info=sequence
+U: 4
+U: 3, C: 1
+G: 3, U: 1
+C: 4
+U: 4
+U: 3, A: 1
+A: 4
+U: 4
+A: 4
+G: 4
+A: 4
+C: 4
+A: 3, U: 1
+A: 2, U: 2
+#info=basepair
+1-12	cWW - UU: 1, tWW - CA: 1, tHH - UA: 1
+4-10	tWH - UA: 4
+6-9	tHS - AG: 4
+6-11	tWH - AC: 3
+2-5	cSW - GU: 1
+#info=stacking
+0-1	upward: 2, inward: 2
+1-2	upward: 1
+3-4	upward: 4
+4-9	inward: 4
+6-7	upward: 4
+6-10	outward: 4
+8-9	upward: 3
+12-13	upward: 3, outward: 1
+2-4	outward: 1
+2-10	downward: 3
+11-12	upward: 2, inward: 1
+7-9	outward: 1
+#info=break_points
+3, 8, 14
+#info=total_loops
+4

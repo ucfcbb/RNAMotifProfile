@@ -1,0 +1,50 @@
+#info=sequence
+G: 18, C: 10, U: 6, -: 5, A: 5
+-: 31, G: 7, C: 5, U: 1
+C: 15, A: 11, G: 9, -: 6, U: 3
+A: 19, -: 17, U: 4, C: 3, G: 1
+C: 22, U: 8, A: 7, G: 6, -: 1
+U: 19, A: 9, -: 9, C: 4, G: 3
+-: 41, C: 2, A: 1
+A: 20, C: 13, G: 5, -: 3, U: 3
+-: 23, A: 7, C: 7, U: 4, G: 3
+-: 29, A: 7, C: 4, G: 3, U: 1
+A: 15, C: 15, G: 8, U: 3, -: 3
+-: 40, A: 2, C: 2
+#info=basepair
+2-4	cSH - CC: 11, cSH - GU: 7, cSH - UC: 3, cSH - AA: 3, cSH - AG: 2
+4-10	tWH - UA: 7, cWS - CG: 7, cWS - CC: 5, cWS - AC: 5, cWS - CA: 4, tWH - CA: 3, cWS - GG: 1
+5-9	tHS - AG: 3, tHS - AA: 3, tHS - AC: 1
+6-11	cWS - AC: 1, cWS - CA: 1, cWS - CC: 1
+1-5	tSW - GA: 1, tWW - CC: 1
+0-3	tSW - GA: 3, cSH - UC: 3, cSH - CA: 1, cSH - UA: 1, tSH - GA: 1
+2-7	tWH - CA: 15, cWW - AC: 1
+2-3	cSH - UA: 3, cSH - AA: 2, cSH - CC: 1
+4-5	cWH - UA: 1
+1-7	tWH - CA: 5
+1-4	cSH - CC: 2
+3-10	cWS - AC: 5, cWS - UG: 4, cWW - AU: 1, cWS - AA: 1, cWS - GG: 1
+#info=stacking
+2-9	inward: 7
+4-5	upward: 25, downward: 1
+4-9	inward: 1
+5-10	outward: 8
+7-9	upward: 7
+1-4	upward: 3
+10-11	upward: 3
+5-6	upward: 1
+0-1	upward: 8
+0-2	upward: 23
+7-10	upward: 31
+8-9	upward: 5
+3-4	upward: 21
+2-10	outward: 5
+0-3	upward: 1
+2-4	upward: 3
+2-3	upward: 2, downward: 1
+7-8	upward: 1
+0-5	upward: 1
+#info=break_points
+7, 12
+#info=total_loops
+44

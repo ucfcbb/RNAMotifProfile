@@ -1,0 +1,34 @@
+#info=sequence
+C: 5, U: 4, A: 3
+-: 6, C: 4, G: 2
+G: 5, C: 4, -: 3
+-: 6, G: 4, C: 2
+C: 9, G: 2, -: 1
+C: 8, A: 2, -: 1, U: 1
+A: 10, G: 1, U: 1
+A: 11, U: 1
+G: 7, A: 3, C: 2
+C: 6, G: 3, U: 3
+G: 5, A: 4, U: 3
+#info=basepair
+5-6	cSH - CA: 7, cSH - AA: 2, cSH - UA: 1
+5-7	cSH - CA: 5, cSH - UA: 1
+#info=stacking
+0-7	upward: 1
+4-5	inward: 8, upward: 1
+7-10	outward: 1
+6-7	upward: 10
+9-10	upward: 9
+0-8	upward: 8
+1-2	upward: 4
+2-4	upward: 3
+8-10	outward: 9
+4-6	inward: 1
+1-3	upward: 1
+3-4	upward: 5
+2-3	upward: 4
+3-5	inward: 1
+#info=break_points
+9, 11
+#info=total_loops
+12

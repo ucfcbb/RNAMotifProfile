@@ -1,0 +1,26 @@
+#info=sequence
+C: 21, G: 13, U: 9, A: 2
+G: 32, A: 12, U: 1
+A: 41, G: 3, C: 1
+G: 25, A: 12, C: 5, U: 2, -: 1
+C: 22, U: 17, G: 4, A: 2
+G: 30, A: 13, C: 1, U: 1
+A: 45
+G: 19, C: 16, A: 6, U: 4
+#info=basepair
+1-6	tSH - GA: 32, tSH - AA: 12, tWW - UA: 1
+2-5	tHS - AG: 27, tHS - AA: 11, tHS - GG: 2, tHH - AG: 1, cWW - GC: 1, tHS - CA: 1, tHW - AU: 1, tHW - AA: 1
+#info=stacking
+0-1	upward: 45
+1-5	inward: 44
+1-7	outward: 20
+2-3	upward: 43
+4-5	upward: 44, inward: 1
+6-7	upward: 42
+3-5	outward: 23
+2-6	outward: 40, downward: 1
+1-2	upward: 1
+#info=break_points
+4, 8
+#info=total_loops
+45

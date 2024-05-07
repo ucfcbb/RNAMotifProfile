@@ -1,0 +1,99 @@
+#info=sequence
+C: 2, G: 1
+U: 1, A: 1, G: 1
+A: 3
+G: 3
+U: 2, A: 1
+-: 2, A: 1
+-: 2, A: 1
+-: 2, U: 1
+-: 2, A: 1
+A: 2, C: 1
+C: 1, -: 1, U: 1
+G: 1, U: 1, A: 1
+-: 2, G: 1
+A: 2, G: 1
+C: 2, G: 1
+C: 1, -: 1, A: 1
+C: 2, -: 1
+G: 3
+U: 3
+U: 3
+G: 1, U: 1, C: 1
+C: 1, A: 1, G: 1
+-: 2, C: 1
+C: 3
+-: 2, G: 1
+A: 2, C: 1
+U: 2, A: 1
+U: 1, -: 1, G: 1
+A: 2, C: 1
+-: 2, A: 1
+G: 1, U: 1, A: 1
+A: 2, G: 1
+-: 2, G: 1
+-: 2, U: 1
+G: 2, A: 1
+C: 2, A: 1
+U: 1, G: 1, A: 1
+A: 2, G: 1
+A: 3
+U: 3
+G: 2, C: 1
+#info=basepair
+2-17	tSS - AG: 3
+2-35	tHW - AC: 2, tHH - AA: 1
+3-18	cWW - GU: 2
+6-14	tHW - AC: 1
+9-13	cWW - AA: 1, cWW - CG: 1
+23-34	cWW - CG: 2, cWW - CA: 1
+25-31	cWS - AA: 2, cWW - CG: 1
+26-29	cWW - AA: 1
+1-38	tSH - AA: 1, tSH - GA: 1
+2-14	cSS - AC: 1
+4-13	tWS - UA: 1, cWW - UG: 1
+2-16	cSS - AC: 1
+24-33	cWW - GU: 1
+26-27	cWH - UG: 1
+#info=stacking
+0-1	upward: 3
+1-35	inward: 2, upward: 1
+2-38	outward: 3
+3-16	upward: 1, outward: 1
+5-15	inward: 1
+6-7	upward: 1
+7-8	upward: 1
+8-9	upward: 1
+9-10	upward: 2
+11-13	upward: 2, inward: 1
+17-18	upward: 3
+19-35	outward: 2, downward: 1
+20-23	outward: 1
+20-34	downward: 3
+21-23	upward: 3
+25-26	upward: 3
+25-34	outward: 2
+26-27	upward: 1
+28-29	upward: 1
+29-31	upward: 1
+36-37	upward: 3
+1-40	outward: 1
+3-14	upward: 1
+4-9	upward: 2
+9-13	downward: 1
+12-13	upward: 1
+28-31	upward: 1
+2-19	upward: 1
+13-15	inward: 1
+14-15	upward: 1
+24-25	upward: 1
+24-34	outward: 1
+27-30	outward: 1
+28-30	upward: 1
+30-31	upward: 1
+31-33	upward: 1
+38-40	upward: 1
+#info=break_points
+11, 17, 21, 28, 41
+#info=total_loops
+3
