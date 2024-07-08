@@ -5,7 +5,8 @@ import glob
 import multiprocessing as mp
 import numpy
 from cif import *
-from Bio import SeqIO, pairwise2
+# from Bio import SeqIO, pairwise2
+from Bio import SeqIO, Align
 from functools import reduce
 import tempfile
 
@@ -187,7 +188,8 @@ def get_residue_reference_both_way_mapping_data_for_single_chain(residue_list, r
     
     residue_seq = ''.join(list(map(lambda x: x.symbol, residue_list)))    # get the residue sequence
 
-    aln = pairwise2.align.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
+    # aln = pairwise2.align.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
+    aln = Align.PairwiseAligner.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
     (aln_residue, aln_ref, _, _, _) = aln[0]
 
     ref_seq_replaced = replace_unknown_letter_in_ref(aln_ref, aln_residue)

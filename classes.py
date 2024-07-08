@@ -197,7 +197,7 @@ class Chainindex():
             chain_id = str[1:].strip().split("'")[0]
             i = len(chain_id)+2
         else:
-            chain_id = re.split('-?(\d+)',str)[0]
+            chain_id = re.split(r'-?(\d+)',str)[0]
             i = len(chain_id)
 
         if str[-1].isalpha():
