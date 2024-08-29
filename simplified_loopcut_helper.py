@@ -189,8 +189,18 @@ def get_residue_reference_both_way_mapping_data_for_single_chain(residue_list, r
     residue_seq = ''.join(list(map(lambda x: x.symbol, residue_list)))    # get the residue sequence
 
     # aln = pairwise2.align.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
-    aln = Align.PairwiseAligner.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
-    (aln_residue, aln_ref, _, _, _) = aln[0]
+    # aln = Align.PairwiseAligner.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
+    aligner = Align.PairwiseAligner()
+    aligner.mode = 'global'
+    aligner.match_score = 5
+    aligner.mismatch_score = -3
+    aligner.open_gap_score = -10
+    aligner.extend_gap_score = -1
+    aln = aligner.align(residue_seq, ref_seq)
+    pieces = str(list(aln)[0]).strip().split('\n')
+    aln_residue = pieces[0]
+    aln_ref = pieces[2]
+    # (aln_residue, aln_ref, _, _, _) = aln[0]
 
     ref_seq_replaced = replace_unknown_letter_in_ref(aln_ref, aln_residue)
     residue_to_ref_mapping, ref_to_residue_mapping = get_aln_mapping(aln_residue, ref_seq_replaced)

@@ -81,6 +81,8 @@ def load_loop_data(loop_fn, include_reversed=True):
     reading_bp = True
     for line in lines[3:]:
         line = line.strip()
+        if len(line) == 0:
+            continue
         pieces = line.split(',')
 
         if line == '#info=stacking':
