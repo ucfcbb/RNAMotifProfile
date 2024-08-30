@@ -33,7 +33,7 @@ residue partner. The residue partner is 0 if the base is unpaired.
 Numbering is 1-based!
 """
 from __future__ import division
-from string import strip
+# from string import strip
 from rna2d import Vienna, Pairs
 
 class BpseqParseError(Exception):
@@ -257,6 +257,6 @@ def bpseq_specify_output(lines, num_base=1, unpaired_symbol='0',
 if __name__ == "__main__":
     from sys import argv
     seq, struct = BpseqParser(open(argv[1]))
-    print seq
-    print seq.Info
-    print struct
+    print(seq)
+    print(seq.Info)
+    print(struct)

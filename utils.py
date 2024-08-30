@@ -6,6 +6,9 @@ import logging
 import time
 import shutil
 
+import Bio
+from Bio import SeqIO, Align
+
 from logger import *
 from classes import *
 from interaction_utils import *
@@ -3318,3 +3321,23 @@ def print_input_stat(families):
         # max_max_motif_len = max(max_max_motif_len, max_motif_len)
         avg_motif_len = int(round(sum_motif_len / len(loops), 0))
         print(str(len(loops)) + '\t' + str(avg_motif_len) + ' (' + str(min_motif_len) + '-' + str(max_motif_len) + ')')
+
+def get_seq_alignment(seq1, seq2):
+    aln_residue = ''
+    aln_ref = ''
+    aligner = Align.PairwiseAligner()
+    aligner.mode = 'global'
+    aligner.match_score = 5
+    aligner.mismatch_score = -3
+    aligner.open_gap_score = -10
+    aligner.extend_gap_score = -1
+    aln = aligner.align(seq1, seq2)
+    if Bio.__version__ in ['1.77', '1.78', '1.79']:
+        pieces = str(list(aln)[0]).strip().split('\n')
+        aln_residue = pieces[0]
+        aln_ref = pieces[2]
+    else:   # ['1.80', '1.81', '1.82', '1.84']
+        aln_residue = aln[0][0]
+        aln_ref = aln[0][1]
+
+    return aln_residue, aln_ref

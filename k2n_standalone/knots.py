@@ -668,9 +668,9 @@ class ConflictMatrix(object):
                 raise ValueError("Can't convert data to Pairs")
 
         # handle the rows and columns in order and set RowOrder and ColOrder
-        ro = id_to_pr.keys()
+        ro = list(id_to_pr.keys())
         ro.sort()
-        co = id_to_pr.keys()
+        co = list(id_to_pr.keys())
         co.sort()
         conf = {} # dict of conflicts between blocks
         for id1, bl in id_to_pr.items():

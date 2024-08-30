@@ -182,7 +182,7 @@ def k2n_main(input_filename, input_format=DEFAULT_INPUT_FORMAT,\
             %(format, ', '.join(KNOWN_INPUT_FORMATS.keys()))
         raise ValueError(message)
     if output_format not in KNOWN_OUTPUT_FORMATS:
-    	message = "'%s' is an invalid output format. Valid options are [%s]"\
+        message = "'%s' is an invalid output format. Valid options are [%s]"\
             %(format, ', '.join(KNOWN_OUTPUT_FORMATS.keys()))
         raise ValueError(message)
     if method not in KNOWN_METHODS:
@@ -212,10 +212,10 @@ def k2n_main(input_filename, input_format=DEFAULT_INPUT_FORMAT,\
             ks = KnottedStructure(pairs, Seq=seq, Header=header)
             input_data = [ks]
         else:
-            for header, seq, pairs in input_parser(open(input_filename,'U')):
+            for header, seq, pairs in input_parser(open(input_filename)):
                 input_data.append(KnottedStructure(Knotted=pairs, Seq=seq,\
                     Header=header))
-    except (BpseqParseError, CtError, ValueError), e:
+    except (BpseqParseError, CtError, ValueError) as e:
         message_lines = ["Cannot read input file.",
             "Make sure the input file is in the specified format.",
             "Internal error message:","%s."%(str(e))]
@@ -329,4 +329,4 @@ if __name__ == "__main__":
     result = k2n_main(input_file, input_format=opts.input_format,\
     output_format=opts.output_format, method=opts.method,\
     opt_method=opts.opt_method, verbose=opts.verbose, removed=opts.removed)
-    print result
+    print(result)

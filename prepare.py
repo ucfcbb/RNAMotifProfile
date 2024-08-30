@@ -269,16 +269,17 @@ def get_residue_reference_both_way_mapping_data_for_single_chain(residue_list, r
     # print('before aligning')
 
     # aln = pairwise2.align.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
-    aligner = Align.PairwiseAligner()
-    aligner.mode = 'global'
-    aligner.match_score = 5
-    aligner.mismatch_score = -3
-    aligner.open_gap_score = -10
-    aligner.extend_gap_score = -1
-    aln = aligner.align(residue_seq, ref_seq)
-    pieces = str(list(aln)[0]).strip().split('\n')
-    aln_residue = pieces[0]
-    aln_ref = pieces[2]
+    # aligner = Align.PairwiseAligner()
+    # aligner.mode = 'global'
+    # aligner.match_score = 5
+    # aligner.mismatch_score = -3
+    # aligner.open_gap_score = -10
+    # aligner.extend_gap_score = -1
+    # aln = aligner.align(residue_seq, ref_seq)
+    # pieces = str(list(aln)[0]).strip().split('\n')
+    # aln_residue = pieces[0]
+    # aln_ref = pieces[2]
+    aln_residue, aln_ref = get_seq_alignment(residue_seq, ref_seq)
     # aln = Align.PairwiseAligner.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
     # (aln_residue, aln_ref, _, _, _) = aln[0]
 
@@ -849,5 +850,6 @@ def get_loops_from_a_chain(pdb_chain_to_search, directories, ann_source, junctio
     pdb_chain_dict[pdb_id].append(chain_id)
 
     junction_wise_filtered_loops = cut_loops(pdb_chain_dict, directories, ann_source, remove_empty_loops, outlier_zscore_threshold)
+    # print(junction_wise_filtered_loops)
 
     return junction_wise_filtered_loops[junction_count]

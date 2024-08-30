@@ -16,7 +16,7 @@ Provides following classes:
     WussStructure: Wash U secondary structure format, handles pseudoknots.
     StructureNode: for tree representation of nested RNA structure.
 """
-from string import maketrans
+# from string import maketrans
 
 class keep_chars(object):
     """Returns a filter object o(s): call to return a filtered string.
@@ -24,7 +24,7 @@ class keep_chars(object):
     Specifically, strips out everything in s that is not in keep.
     This filter is case sensitive by default.
     """
-    allchars = maketrans('','')
+    allchars = str.maketrans('','')
     def __init__(self, keep, case_sens=True):
         """Returns a new keep_chars object, based on string keep"""
         if not case_sens:
@@ -70,7 +70,7 @@ class Partners(list):
     def __setitem__(self, index, item):
         """Sets self[index] to item, enforcing integrity constraints."""
         if index == item:
-            raise ValueError, "Cannot set base %s to pair with itself." % item
+            raise ValueError("Cannot set base %s to pair with itself." % item)
         #if item already paired, raise Error or make partner unpaired
         if item and self[item]:
             self[self[item]] = None
@@ -130,8 +130,8 @@ class Pairs(list):
             
             if result[upstream] or result[downstream]:
                 if strict:
-                    raise ValueError, "Pairs contain conflicting partners: %s"\
-                        % self
+                    raise ValueError("Pairs contain conflicting partners: %s"\
+                        % self)
             result[upstream] = downstream
         return result
             
@@ -146,7 +146,7 @@ class Pairs(list):
         strict specifies whether collisions cause fatal errors.
         """
         if self.hasPseudoknots():
-            raise Exception, "Pairs contains pseudoknots %s"%(self)
+            raise Exception("Pairs contains pseudoknots %s"%(self))
         
         try:
             length = int(length)
@@ -164,8 +164,8 @@ class Pairs(list):
 
             if strict:
                 if (result[upstream] != '.') or (result[downstream] != '.'):
-                    raise ValueError, "Pairs contain conflicting partners: %s"\
-                        % self
+                    raise ValueError("Pairs contain conflicting partners: %s"\
+                        % self)
             result[upstream] = '('
             result[downstream] = ')'
         return ViennaStructure(''.join(result))
@@ -325,8 +325,8 @@ class StructureString(str):
         if a:
             for i in Structure:
                 if i not in a:
-                    raise ValueError,\
-                    "Tried to include unknown symbol '%s'" % i
+                    raise ValueError(\
+                    "Tried to include unknown symbol '%s'" % i)
         
         return str.__new__(cls,Structure)
 
@@ -373,8 +373,8 @@ class StructureString(str):
                
         #test whether there are any open pairs left unaccounted for        
         if stack:
-           raise IndexError, \
-           "Too many open pairs in structure:\n%s" % self
+           raise IndexError(\
+           "Too many open pairs in structure:\n%s" % self)
         return Partners(result)
 
     def toPairs(self):
@@ -396,8 +396,8 @@ class StructureString(str):
                result[stack.pop()] = i
         #test whether there are any open pairs left unaccounted for        
         if stack:
-           raise IndexError, \
-           "Too many open pairs in structure:\n%s" % self
+           raise IndexError(\
+           "Too many open pairs in structure:\n%s" % self)
         return Pairs([(key,result[key]) for key in result])
 
 

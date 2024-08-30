@@ -13,6 +13,7 @@ import tempfile
 # from ann_merge_helper import *
 from ann_parser import *
 # from classes import *
+from utils import *
 
 cWW_stack_threshold = 1
 include_multi_chain_loops = False
@@ -190,17 +191,20 @@ def get_residue_reference_both_way_mapping_data_for_single_chain(residue_list, r
 
     # aln = pairwise2.align.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
     # aln = Align.PairwiseAligner.globalms(residue_seq, ref_seq, 5, -3, -10, -1)
-    aligner = Align.PairwiseAligner()
-    aligner.mode = 'global'
-    aligner.match_score = 5
-    aligner.mismatch_score = -3
-    aligner.open_gap_score = -10
-    aligner.extend_gap_score = -1
-    aln = aligner.align(residue_seq, ref_seq)
-    pieces = str(list(aln)[0]).strip().split('\n')
-    aln_residue = pieces[0]
-    aln_ref = pieces[2]
+    # aligner = Align.PairwiseAligner()
+    # aligner.mode = 'global'
+    # aligner.match_score = 5
+    # aligner.mismatch_score = -3
+    # aligner.open_gap_score = -10
+    # aligner.extend_gap_score = -1
+    # aln = aligner.align(residue_seq, ref_seq)
+    # pieces = str(list(aln)[0]).strip().split('\n')
+    # aln_residue = pieces[0]
+    # aln_ref = pieces[2]
     # (aln_residue, aln_ref, _, _, _) = aln[0]
+    aln_residue, aln_ref = get_seq_alignment(residue_seq, ref_seq)
+    # print(aln_residue)
+    # print(aln_ref)
 
     ref_seq_replaced = replace_unknown_letter_in_ref(aln_ref, aln_residue)
     residue_to_ref_mapping, ref_to_residue_mapping = get_aln_mapping(aln_residue, ref_seq_replaced)
@@ -436,6 +440,7 @@ def remove_redundant_ww_bp(pdb_id, chain_id, wc_bp_dict, log_file_name):
     return new_wc_bp_dict
 
 def get_knot_free_struct(pdb_id, chain_id, ref_seq, residue_list, residue_to_ref_mapping, intera_list, log_file_name, is_detailed_ann):
+    # print(residue_to_ref_mapping)
     """
     get the pseudoknot-free secondary structure for the reference sequence
     ref_seq: the reference sequence

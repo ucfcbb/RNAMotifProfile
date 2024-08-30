@@ -128,7 +128,7 @@ def MinimalCtParser(lines, strict=True, header_parser=ct_parse_header,\
             header_info = header_parser(head)
             seq, pairs = content_parser(body)
             yield [header_info], seq, pairs
-        except CtError, e:
+        except CtError as e:
             if strict:
                 raise CtError(str(e))
             else:
@@ -144,7 +144,7 @@ def CtParser(lines, strict=True, header_parser=ct_parse_header,\
             sequence, pairs = supported[program]['INTEGRATION']\
                 (header_info, content_info)
             yield sequence, pairs
-        except CtError, e:
+        except CtError as e:
             if strict:
                 raise CtError(str(e))
             else:
@@ -156,4 +156,4 @@ if __name__ == "__main__":
     #    print lines
 
     for res in MinimalCtParser(open(argv[1],'U')):
-        print res
+        print(res)
