@@ -526,6 +526,7 @@ def get_knot_free_struct(pdb_id, chain_id, ref_seq, residue_list, residue_to_ref
 
         # if flag_remove_pseudoknots is True:
         #     os.system("../lib/k2n_standalone/knotted2nested.py %s > %s" % (input_path, output_path))
+        os.system('chmod +x k2n_standalone/knotted2nested.py')
         os.system("k2n_standalone/knotted2nested.py %s > %s" % (input_path, output_path))
 
         # ret = []
