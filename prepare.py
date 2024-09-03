@@ -11,9 +11,11 @@ from functools import reduce
 from past.builtins import map
 from future.standard_library import install_aliases
 install_aliases()
-from urllib.parse import urlparse, urlencode
-from urllib.request import urlopen, Request, urlretrieve
-from urllib.error import HTTPError
+# from urllib.parse import urlparse, urlencode
+# from urllib.request import urlopen, Request, urlretrieve
+# from urllib.error import HTTPError
+
+import requests
 
 # sys.path.append('../../')
 # from config import *
@@ -91,7 +93,10 @@ def download_single_pdbx_or_fasta_file(fname, file_ext, url, directories, downlo
             logger.info('Repeating download: ' + fname + ' (Attempt ' + str(number_of_tries) + ').')
 
         if file_ext == 'cif':
-            urlretrieve(url + fname, os.path.join(directories.pdbx_dir, fname))
+            # urlretrieve(url + fname, os.path.join(directories.pdbx_dir, fname))
+            response = requests.get(url + fname)
+            with open(os.path.join(directories.pdbx_dir, fname), mode="wb") as file:
+                file.write(response.content)
             wait_for_certain_time_according_to_wait_factor(wait_time)
             fp = open(os.path.join(directories.pdbx_dir, fname))
             lines = fp.readlines()
@@ -100,7 +105,10 @@ def download_single_pdbx_or_fasta_file(fname, file_ext, url, directories, downlo
                 status = True
 
         elif file_ext == 'fasta':
-            urlretrieve(url + fname.strip().split('.')[0], os.path.join(directories.fasta_dir, fname))
+            # urlretrieve(url + fname.strip().split('.')[0], os.path.join(directories.fasta_dir, fname))
+            response = requests.get(url + fname.strip().split('.')[0])
+            with open(os.path.join(directories.fasta_dir, fname), mode="wb") as file:
+                file.write(response.content)
             wait_for_certain_time_according_to_wait_factor(wait_time)
             fp = open(os.path.join(directories.fasta_dir, fname))
             lines = fp.readlines()
