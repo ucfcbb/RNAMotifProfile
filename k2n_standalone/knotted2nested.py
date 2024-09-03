@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # knotted2nested.py
 
 """Script to remove pseudoknots from pseudoknotted structures.
