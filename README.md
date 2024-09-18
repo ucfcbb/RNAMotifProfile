@@ -207,4 +207,4 @@ RNAMotifProfile is developed for an NIH funded project (R01GM102515).
   
 ### CONTACTS
 
-For bug reports or comments please contact shaojie.zhang@ucf.edu
+For bug reports or comments please contact mahfuz@ucf.edu.
